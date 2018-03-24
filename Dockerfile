@@ -1,7 +1,8 @@
 FROM ubuntu:trusty
 
-MAINTAINER Benjamin Pack <ben.pack.gmail.com>
+MAINTAINER Benjamin Pack <ben.pack@gmail.com>
 
+# Prevent dpkg errors
 ENV TERM=xterm-256color
 
 # Install Python runtime
@@ -20,3 +21,5 @@ RUN virtualenv /appenv && \
 ADD scripts/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
+
+LABEL application=todobackend
